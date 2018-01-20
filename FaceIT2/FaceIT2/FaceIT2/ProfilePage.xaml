@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="Profile"
+             x:Class="FaceIT2.ProfilePage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Report User" Activated="ToolBar_Btn1" Order="Secondary"/>
+        <ToolbarItem Text="Suggestion" Activated="ToolBar_Btn2" Order="Secondary"/>
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <StackLayout>
+            <Image x:Name="profile" WidthRequest="360"
+                 HeightRequest="220"  />
+            <StackLayout>
+                <Label Text="John Snow" FontSize="25" HorizontalOptions="CenterAndExpand" />
+                <StackLayout Padding="5,0,5,0">
+                    <StackLayout>
+                        <ListView x:Name="myList"
+                            HasUnevenRows="True" 
+                            ItemSelected="myList_ItemSelected"
+                            BackgroundColor="Transparent" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+
+                                        <ViewCell.ContextActions>
+                                            <!--Long Press ListItems to edit-->
+                                            <MenuItem Text="Edit" 
+                                                Clicked="MenuItem_Clicked"
+                                                CommandParameter="{Binding .}"/>
+                                        </ViewCell.ContextActions>
+
+                                        <StackLayout Orientation="Horizontal" Padding="5" >
+                                            <Image Source="{Binding ImageUrl}" />
+                                            <StackLayout HorizontalOptions="StartAndExpand">
+                                                <Label Text="{Binding Name}" 
+                                               FontAttributes="Bold" 
+                                               FontSize="18" />
+                                                <Label Text="{Binding Status}" 
+                                               TextColor="Gray"
+                                               FontSize="15"/>
+                                            </StackLayout>
+                                            <!--  <Button Text="Edit" 
+                                                TextColor="LightBlue" 
+                                                FontSize="16"
+                                                BackgroundColor="Transparent"/>
+                                            -->
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                    
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

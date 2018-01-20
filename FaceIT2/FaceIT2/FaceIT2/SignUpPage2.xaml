@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FaceIT2.SignUpPage2"
+              BackgroundColor="Azure"
+             Title="Sign Up">
+    <StackLayout Padding="5,20,5,0">
+
+        <Label Text="Let's Create New Account"/>
+        <ScrollView>
+            <StackLayout Padding="5, 20,5,0">
+                <Entry Keyboard="Text" Placeholder="Name" />
+                <Entry x:Name="EmailEntry" Placeholder="Email" />
+                <Label x:Name="ErrorLabel"/>
+
+                <Entry IsPassword="True" Placeholder="Password" />
+                <Entry IsPassword="True" Placeholder="Re-Enter Password" />
+
+            </StackLayout>
+        </ScrollView>
+
+        <StackLayout >
+            <Button Text="Create Account" Clicked="Button_CreateAcount" />
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>
